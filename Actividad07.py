@@ -10,6 +10,12 @@ def suma(numeros):
         suma += i
     return suma
 
+def area(a,b):
+    return print(f"El area de su rectangulo es: {a*b}")
+
+def perimetro(a,b):
+    return print(f"El perimetro de su rectangulo es: {(2*a)+(2*b)}")
+
 def promedio(numeros):
     return suma(numeros)/len(numeros)
 
@@ -17,6 +23,16 @@ def numeroMayorMenor(listaNum):
     mayor = max(listaNum)
     menor = min(listaNum)
     return print(f"El numero mayor es: {mayor} y el numero menor es: {menor}")
+
+def zonaRisego(lista):
+    mayores85 = 0
+    menores60 = 0
+    for i in lista:
+        if i >= 85:
+            mayores85 += 1
+        elif i < 60:
+            menores60 +=1
+    return print(f"Las calificaciones mayores o iguales a 85 son: {mayores85} y las que estan en zona de reisgo son: {menores60}")
 
 def positivoNegativoCero (numeros):
     positivos = 0
@@ -38,6 +54,17 @@ def multiplos3(numeros):
             multiplos +=1
     return print(f"Hay {multiplos} multiplos de 3 en tu lista")
 
+def numPrimo(numero):
+    if numero <= 1:
+        print(f"{numero} no es un número primo")
+    else:
+        for i in range(2, numero):
+            if numero % i == 0:
+                print(f"{numero} no es un número primo")
+                break
+        else:
+            print(f"{numero} es un número primo")
+
 while True:
     print("--Bienvenido al Menu--")
     print("1. Suma, promedio, cantidad  de numeros positivos y negativos y  ceros y cuantos son multiplos de 3")
@@ -58,11 +85,20 @@ while True:
             multiplos3(listaNumeros)
             input("")
         case "2":
-            print("hola")
+            base = int(input("Ingrese la base del rectangulo: "))
+            altura = int(input("Ingrese la altura del rectangulo: "))
+            area(base,altura)
+            perimetro(base, altura)
+            input("")
         case"3":
-            print("hola")
+            numero = int(input("Ingrese el numero que quiere evaluar: "))
+            numPrimo(numero)
+            input("")
         case "4":
-            print("hola")
+            calificaciones = []
+            pedirDatos(calificaciones)
+            print(f"El prommedio de sus caificaciones es {promedio(calificaciones)}")
+            zonaRisego(calificaciones)
         case "5":
             print("hola")
         case "6":
