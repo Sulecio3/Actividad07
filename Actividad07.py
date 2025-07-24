@@ -24,6 +24,15 @@ def numeroMayorMenor(listaNum):
     menor = min(listaNum)
     return print(f"El numero mayor es: {mayor} y el numero menor es: {menor}")
 
+def numeroMayorMenor(listaNum):
+    mayor = max(listaNum)
+    menor = min(listaNum)
+    repitentes = 0
+    for i in listaNum:
+        if i == listaNum[0]:
+            repitentes +=1
+    return print(f"El numero mayor es: {mayor} el numero menor es: {menor}, se repiten {repitentes} numeros")
+
 def zonaRisego(lista):
     mayores85 = 0
     menores60 = 0
@@ -65,6 +74,21 @@ def numPrimo(numero):
         else:
             print(f"{numero} es un número primo")
 
+def sum(a,b):
+    return print(f"La suma de {a} + {b} da como resultado: {a+b}")
+
+def resta(a,b):
+    return print(f"La resta de {a} - {b} da como resultado: {a-b}")
+
+def multi(a,b):
+    return print(f"La multiplicacion de {a} x {b} da como resultado: {a*b}")
+
+def divi(a,b):
+    if b == 0:
+        return print("No se puede dividir dentro de 0")
+    else:
+        return print(f"La division de {a} / {b} da como resultado: {a/b}")
+
 while True:
     print("--Bienvenido al Menu--")
     print("1. Suma, promedio, cantidad  de numeros positivos y negativos y  ceros y cuantos son multiplos de 3")
@@ -72,7 +96,7 @@ while True:
     print("3. Verificar si el numero es primo o no")
     print("4. calcular el promedio")
     print("5. Mostrar cual es el mayor, menor y cuantos se repiten")
-    print("6. caluculador")
+    print("6. caluculadora")
     print("7. Salir")
     option = input("ingrese la opcion en la que quiera entrar: ")
     match option:
@@ -99,10 +123,44 @@ while True:
             pedirDatos(calificaciones)
             print(f"El prommedio de sus caificaciones es {promedio(calificaciones)}")
             zonaRisego(calificaciones)
+            input("")
         case "5":
-            print("hola")
+            listaNumeros = []
+            pedirDatos(listaNumeros)
+            numeroMayorMenor(listaNumeros)
+            input("")
         case "6":
-            print("hola")
+            print("Bienvenido a la calculadora basica")
+            print("Como primer punto ingrese sus 2 numeros")
+            num1 = int(input("Ingrese el primer numero: "))
+            num2 = int(input("Ingrese el segundo numero: "))
+            while True:
+                print("1. Suma")
+                print("2. Resta")
+                print("3. Multiplicacion")
+                print("4. division")
+                print("5. Salir")
+                option = input("Ingrese la opcion que quiere realizar con sus dos numeros: ")
+                match option:
+                    case "1":
+                        sum(num1,num2)
+                        input("")
+                    case "2":
+                        resta(num1,num2)
+                        input("")
+                    case "3":
+                        multi(num1, num2)
+                        input("")
+                    case "4":
+                        divi(num1, num2)
+                        input("")
+                    case "5":
+                        print("Saliendo del programa")
+                        break
+                    case _:
+                        print("Opcion no valida")
+                        input("")
+
         case "7":
             print("Saliendo del programa")
             break
